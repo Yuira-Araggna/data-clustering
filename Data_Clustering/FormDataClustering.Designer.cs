@@ -53,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownClusterNumber = new System.Windows.Forms.NumericUpDown();
             this.buttonDetermine = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataCluster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClusterNumber)).BeginInit();
@@ -67,8 +68,8 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,20 +79,20 @@
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // displayToolStripMenuItem
@@ -100,7 +101,7 @@
             this.sepalToolStripMenuItem,
             this.petalToolStripMenuItem});
             this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            this.displayToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.displayToolStripMenuItem.Text = "Display";
             // 
             // sepalToolStripMenuItem
@@ -109,20 +110,20 @@
             this.lengthToolStripMenuItem,
             this.widthToolStripMenuItem});
             this.sepalToolStripMenuItem.Name = "sepalToolStripMenuItem";
-            this.sepalToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.sepalToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.sepalToolStripMenuItem.Text = "Sepal";
             // 
             // lengthToolStripMenuItem
             // 
             this.lengthToolStripMenuItem.Name = "lengthToolStripMenuItem";
-            this.lengthToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.lengthToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.lengthToolStripMenuItem.Text = "Length";
             this.lengthToolStripMenuItem.Click += new System.EventHandler(this.lengthToolStripMenuItem_Click);
             // 
             // widthToolStripMenuItem
             // 
             this.widthToolStripMenuItem.Name = "widthToolStripMenuItem";
-            this.widthToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.widthToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.widthToolStripMenuItem.Text = "Width";
             this.widthToolStripMenuItem.Click += new System.EventHandler(this.widthToolStripMenuItem_Click);
             // 
@@ -132,45 +133,44 @@
             this.lengthToolStripMenuItem1,
             this.widthToolStripMenuItem1});
             this.petalToolStripMenuItem.Name = "petalToolStripMenuItem";
-            this.petalToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.petalToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.petalToolStripMenuItem.Text = "Petal";
             // 
             // lengthToolStripMenuItem1
             // 
             this.lengthToolStripMenuItem1.Name = "lengthToolStripMenuItem1";
-            this.lengthToolStripMenuItem1.Size = new System.Drawing.Size(129, 26);
+            this.lengthToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.lengthToolStripMenuItem1.Text = "Length";
             this.lengthToolStripMenuItem1.Click += new System.EventHandler(this.lengthToolStripMenuItem1_Click);
             // 
             // widthToolStripMenuItem1
             // 
             this.widthToolStripMenuItem1.Name = "widthToolStripMenuItem1";
-            this.widthToolStripMenuItem1.Size = new System.Drawing.Size(129, 26);
+            this.widthToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.widthToolStripMenuItem1.Text = "Width";
             this.widthToolStripMenuItem1.Click += new System.EventHandler(this.widthToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // listBoxDisplay
             // 
             this.listBoxDisplay.FormattingEnabled = true;
-            this.listBoxDisplay.ItemHeight = 16;
-            this.listBoxDisplay.Location = new System.Drawing.Point(12, 334);
-            this.listBoxDisplay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxDisplay.Location = new System.Drawing.Point(9, 271);
+            this.listBoxDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxDisplay.Name = "listBoxDisplay";
-            this.listBoxDisplay.Size = new System.Drawing.Size(776, 180);
+            this.listBoxDisplay.Size = new System.Drawing.Size(583, 147);
             this.listBoxDisplay.TabIndex = 1;
             // 
             // buttonShow
             // 
-            this.buttonShow.Location = new System.Drawing.Point(713, 525);
-            this.buttonShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonShow.Location = new System.Drawing.Point(535, 427);
+            this.buttonShow.Margin = new System.Windows.Forms.Padding(2);
             this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.Size = new System.Drawing.Size(56, 19);
             this.buttonShow.TabIndex = 2;
             this.buttonShow.Text = "Show";
             this.buttonShow.UseVisualStyleBackColor = true;
@@ -185,12 +185,12 @@
             this.PetalLength,
             this.PetalWidth,
             this.Species});
-            this.dataGridViewDataCluster.Location = new System.Drawing.Point(12, 39);
-            this.dataGridViewDataCluster.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewDataCluster.Location = new System.Drawing.Point(9, 26);
+            this.dataGridViewDataCluster.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDataCluster.Name = "dataGridViewDataCluster";
             this.dataGridViewDataCluster.RowHeadersWidth = 51;
             this.dataGridViewDataCluster.RowTemplate.Height = 24;
-            this.dataGridViewDataCluster.Size = new System.Drawing.Size(776, 284);
+            this.dataGridViewDataCluster.Size = new System.Drawing.Size(582, 231);
             this.dataGridViewDataCluster.TabIndex = 3;
             // 
             // SepalLength
@@ -230,10 +230,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(713, 559);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(174, 456);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(65, 19);
             this.button1.TabIndex = 4;
             this.button1.Text = "Show";
             this.button1.UseVisualStyleBackColor = true;
@@ -241,10 +241,10 @@
             // 
             // buttonCoba
             // 
-            this.buttonCoba.Location = new System.Drawing.Point(713, 593);
-            this.buttonCoba.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCoba.Location = new System.Drawing.Point(535, 482);
+            this.buttonCoba.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCoba.Name = "buttonCoba";
-            this.buttonCoba.Size = new System.Drawing.Size(75, 23);
+            this.buttonCoba.Size = new System.Drawing.Size(56, 19);
             this.buttonCoba.TabIndex = 5;
             this.buttonCoba.Text = "Coba";
             this.buttonCoba.UseVisualStyleBackColor = true;
@@ -253,22 +253,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 533);
+            this.label1.Location = new System.Drawing.Point(9, 433);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 17);
+            this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Number of Cluster";
+            this.label1.Text = "Number of Iteration";
             // 
             // numericUpDownClusterNumber
             // 
-            this.numericUpDownClusterNumber.Location = new System.Drawing.Point(151, 530);
+            this.numericUpDownClusterNumber.Location = new System.Drawing.Point(113, 431);
+            this.numericUpDownClusterNumber.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownClusterNumber.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDownClusterNumber.Name = "numericUpDownClusterNumber";
-            this.numericUpDownClusterNumber.Size = new System.Drawing.Size(64, 22);
+            this.numericUpDownClusterNumber.Size = new System.Drawing.Size(48, 20);
             this.numericUpDownClusterNumber.TabIndex = 7;
             this.numericUpDownClusterNumber.Value = new decimal(new int[] {
             1,
@@ -279,19 +281,33 @@
             // buttonDetermine
             // 
             this.buttonDetermine.AutoSize = true;
-            this.buttonDetermine.Location = new System.Drawing.Point(232, 528);
+            this.buttonDetermine.Location = new System.Drawing.Point(174, 429);
+            this.buttonDetermine.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDetermine.Name = "buttonDetermine";
-            this.buttonDetermine.Size = new System.Drawing.Size(83, 27);
+            this.buttonDetermine.Size = new System.Drawing.Size(65, 23);
             this.buttonDetermine.TabIndex = 8;
             this.buttonDetermine.Text = "Determine";
             this.buttonDetermine.UseVisualStyleBackColor = true;
             this.buttonDetermine.Click += new System.EventHandler(this.buttonDetermine_Click);
             // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.Location = new System.Drawing.Point(174, 479);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Auto Run";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormDataClustering
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 627);
+            this.ClientSize = new System.Drawing.Size(600, 509);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonDetermine);
             this.Controls.Add(this.numericUpDownClusterNumber);
             this.Controls.Add(this.label1);
@@ -302,7 +318,7 @@
             this.Controls.Add(this.listBoxDisplay);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDataClustering";
             this.Text = "Data Clustering";
             this.Load += new System.EventHandler(this.FormDataClustering_Load);
@@ -342,6 +358,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDownClusterNumber;
         private System.Windows.Forms.Button buttonDetermine;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -38,7 +38,7 @@ namespace Data_Clustering_LIB
             double distance = Math.Sqrt(Math.Pow((iris.SepalL - (double)centroid.F1), 2) + Math.Pow((iris.SepalW - (double)centroid.F2), 2) + Math.Pow((iris.PetalL - (double)centroid.F3), 2) + Math.Pow((iris.PetalW - (double)centroid.F4), 2));
             return distance;
         }
-        private static double CalcSSE(List<Iris> listI, Centroid irisSetosa, Centroid irisVersicolor, Centroid irisVirginica)
+        public static double CalcSSE(List<Iris> listI, Centroid irisSetosa, Centroid irisVersicolor, Centroid irisVirginica)
         {
             double minimumSetosa = CentroidMover.CountDist(listI[0], irisSetosa);
             double minimumVersicolor = CentroidMover.CountDist(listI[0], irisVersicolor);

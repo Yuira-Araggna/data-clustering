@@ -24,6 +24,9 @@ namespace Data_Clustering
         List<string> listString = new List<string>();
         List<double> listDouble = new List<double>();
         OpenFileDialog open;
+        Centroid centroid3;
+        Centroid centroid2;
+        Centroid centroid1;
 
 
         public FormDataClustering()
@@ -193,38 +196,54 @@ namespace Data_Clustering
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            //assign 1 random centroid first
-            Random rnd = new Random();
-            int f = rnd.Next(0, listOfIris.Count);
-
-            //get the highest distance and set it as 2nd point
-            double outResult = 0;
-            int sIndex = 0;
-            for (int i = 0; i < listOfIris.Count; i++)
+            int iteration = 0;
+            while (iteration > numericUpDownClusterNumber.Value)
             {
-                if (i != f)
+                List<Iris> irisC1 = new List<Iris>();
+                List<Iris> irisC2 = new List<Iris>();
+                List<Iris> irisC3 = new List<Iris>();
+                foreach (Iris i in listOfIris)
                 {
-                    double result = Centroid.CalculateDistanceIris (listOfIris[f], listOfIris[i]);
-                    if (outResult < result)
-                    {
-                        outResult = result;
-                        sIndex = i;
-                    }
+                    i.Centroid = CentroidMover.CountDistAndAssignCentroid(i, centroid1, centroid2, centroid3);
+                    if (i.Centroid == centroid1)
+                        irisC1.Add(i);
+                    else if (i.Centroid == centroid2)
+                        irisC2.Add(i);
+                    else if (i.Centroid == centroid3)
+                        irisC3.Add(i);
+                }
+                centroid1 = Centroid.HitungPosisiCentroid(irisC1);
+                centroid2 = Centroid.HitungPosisiCentroid(irisC2);
+                centroid3 = Centroid.HitungPosisiCentroid(irisC3);
+                switch (iteration)
+                {
+                    case (5):
+                        listBoxDisplay.Items.Add(CentroidMover.CalcSSE(listOfIris, centroid1, centroid2, centroid3));
+                        continue;
+                    case (10):
+                        listBoxDisplay.Items.Add(CentroidMover.CalcSSE(listOfIris, centroid1, centroid2, centroid3));
+                        continue;
+                    case (15):
+                        listBoxDisplay.Items.Add(CentroidMover.CalcSSE(listOfIris, centroid1, centroid2, centroid3));
+                        continue;
+                }
+                iteration++;
+            }
+            foreach (Iris i in listOfIris)
+            {
+                if (centroid1 == i.Centroid)
+                {
+                    dataGridViewDataCluster.Rows.Add(i.SepalL, i.SepalW, i.PetalL, i.PetalW, "Setosa" );
+                }
+                else if (centroid2 == i.Centroid)
+                {
+                    dataGridViewDataCluster.Rows.Add(i.SepalL, i.SepalW, i.PetalL, i.PetalW, "Versicolor"); 
+                }
+                else if (centroid3 == i.Centroid)
+                {
+                    dataGridViewDataCluster.Rows.Add(i.SepalL, i.SepalW, i.PetalL, i.PetalW, "Virginica"); 
                 }
             }
-
-            //find the 3rd centroid based on the average
-            double f1 = (listOfIris[f].PetalL + listOfIris[sIndex].PetalL) / 2;
-            double f2 = (listOfIris[f].PetalW + listOfIris[sIndex].PetalW) / 2;
-            double f3 = (listOfIris[f].SepalL + listOfIris[sIndex].SepalL) / 2;
-            double f4 = (listOfIris[f].SepalW + listOfIris[sIndex].SepalL) / 2;
-
-            Centroid centroid1 = new Centroid(listOfIris[f]);
-            Centroid centroid2 = new Centroid(listOfIris[sIndex]);
-            Centroid centroid3 = new Centroid(f1, f2, f3, f4);
-            //nanti itu codingannya dia milih 2 titik data terjauh
-            //trus centroid 3 nya nanti baru tengahnya antara 2 itu harusnya bisa 
         }
 
         private void buttonCoba_Click(object sender, EventArgs e)
@@ -304,37 +323,134 @@ namespace Data_Clustering
 
         private void buttonDetermine_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            Iris cluster;
+            //Random random = new Random();
+            //Iris cluster;
 
-            List<Iris> listOfCluster = new List<Iris>();
+            //List<Iris> listOfCluster = new List<Iris>();
 
-            double max;
-            int detRandom, clusterNumb;
-            detRandom = random.Next(0, listOfIris.Count - 1);
-            clusterNumb = (int)numericUpDownClusterNumber.Value;
+            //double max;
+            //int detRandom, clusterNumb;
+            //detRandom = random.Next(0, listOfIris.Count - 1);
+            //clusterNumb = (int)numericUpDownClusterNumber.Value;
 
-            cluster = listOfIris[detRandom];
-            listOfCluster.Add(cluster);
-            foreach(Iris iris in listOfIris)
+            //cluster = listOfIris[detRandom];
+            //listOfCluster.Add(cluster);
+            //foreach(Iris iris in listOfIris)
+            //{
+            //    iris.calcDistance(cluster);               
+            //}
+
+            //for(int i = 1; i < clusterNumb; i++)
+            //{
+            //    max = listOfIris[0].DistanceSquare;
+            //    for (int j = 1; j < listOfIris.Count; j++)
+            //    {
+            //        if (max < listOfIris[i].DistanceSquare)
+            //        {
+            //            cluster = listOfIris[i];
+            //        }
+            //    }
+            //    listOfCluster.Add(cluster);
+            //    foreach (Iris iris in listOfIris)
+            //    {
+            //        iris.calcDistance(cluster);
+            //    }
+            //}
+            Random rnd = new Random();
+            int f = rnd.Next(0, listOfIris.Count);
+
+            //get the highest distance and set it as 2nd point
+            double outResult = 0;
+            int sIndex = 0;
+            for (int i = 0; i < listOfIris.Count; i++)
             {
-                iris.calcDistance(cluster);               
-            }
-
-            for(int i = 1; i < clusterNumb; i++)
-            {
-                max = listOfIris[0].DistanceSquare;
-                for (int j = 1; j < listOfIris.Count; j++)
+                if (i != f)
                 {
-                    if (max < listOfIris[i].DistanceSquare)
+                    double result = Centroid.CalculateDistanceIris(listOfIris[f], listOfIris[i]);
+                    if (outResult < result)
                     {
-                        cluster = listOfIris[i];
+                        outResult = result;
+                        sIndex = i;
                     }
                 }
-                listOfCluster.Add(cluster);
-                foreach (Iris iris in listOfIris)
+            }
+
+            //find the 3rd centroid based on the average
+            double f1 = (listOfIris[f].PetalL + listOfIris[sIndex].PetalL) / 2;
+            double f2 = (listOfIris[f].PetalW + listOfIris[sIndex].PetalW) / 2;
+            double f3 = (listOfIris[f].SepalL + listOfIris[sIndex].SepalL) / 2;
+            double f4 = (listOfIris[f].SepalW + listOfIris[sIndex].SepalL) / 2;
+
+            centroid1 = new Centroid(listOfIris[f]);
+            centroid2 = new Centroid(listOfIris[sIndex]);
+            centroid3 = new Centroid(f1, f2, f3, f4);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int iteration = 0;
+            bool stop = false;
+            Centroid c1New;
+            Centroid c2New;
+            Centroid c3New;
+            while (stop == false)
+            {
+                List<Iris> irisC1 = new List<Iris>();
+                List<Iris> irisC2 = new List<Iris>();
+                List<Iris> irisC3 = new List<Iris>();
+                foreach (Iris i in listOfIris)
                 {
-                    iris.calcDistance(cluster);
+                    i.Centroid = CentroidMover.CountDistAndAssignCentroid(i, centroid1, centroid2, centroid3);
+                    if (i.Centroid == centroid1)
+                        irisC1.Add(i);
+                    else if (i.Centroid == centroid2)
+                        irisC2.Add(i);
+                    else if (i.Centroid == centroid3)
+                        irisC3.Add(i);
+                }
+                switch (iteration)
+                {
+                    case (5):
+                        listBoxDisplay.Items.Add(CentroidMover.CalcSSE(listOfIris, centroid1, centroid2, centroid3));
+                        continue;
+                    case (10):
+                        listBoxDisplay.Items.Add(CentroidMover.CalcSSE(listOfIris, centroid1, centroid2, centroid3));
+                        continue;
+                    case (15):
+                        listBoxDisplay.Items.Add(CentroidMover.CalcSSE(listOfIris, centroid1, centroid2, centroid3));
+                        continue;
+                }
+                iteration++;
+                c1New = Centroid.HitungPosisiCentroid(irisC1);
+                c2New = Centroid.HitungPosisiCentroid(irisC2);
+                c3New = Centroid.HitungPosisiCentroid(irisC3);
+                if(c1New == centroid1 && c2New == centroid2 && c3New == centroid3)
+                {
+                    double sseNew = CentroidMover.CalcSSE(listOfIris, c1New, c2New, c3New);
+                    double sseOld = CentroidMover.CalcSSE(listOfIris, centroid1, centroid2, centroid3);
+                    if(sseOld == sseNew)
+                    stop = true;
+                }
+                else
+                {
+                    centroid1 = c1New;
+                    centroid2 = c2New;
+                    centroid3 = c3New;
+                } 
+            }
+            foreach (Iris i in listOfIris)
+            {
+                if (centroid1 == i.Centroid)
+                {
+                    dataGridViewDataCluster.Rows.Add(i.SepalL, i.SepalW, i.PetalL, i.PetalW, "Setosa");
+                }
+                else if (centroid2 == i.Centroid)
+                {
+                    dataGridViewDataCluster.Rows.Add(i.SepalL, i.SepalW, i.PetalL, i.PetalW, "Versicolor");
+                }
+                else if (centroid3 == i.Centroid)
+                {
+                    dataGridViewDataCluster.Rows.Add(i.SepalL, i.SepalW, i.PetalL, i.PetalW, "Virginica");
                 }
             }
         }

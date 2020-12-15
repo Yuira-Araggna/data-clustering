@@ -92,12 +92,12 @@ namespace Data_Clustering_LIB
             F4 = f4 / divider;
         }
 
-        public Iris  HitungPosisiCentroid(List<Iris> irisListInput)
+        public static Centroid  HitungPosisiCentroid(List<Iris> irisListInput)
         {
             //double result = (iris.PetalL + iris.PetalW + iris.SepalL + iris.SepalW) / 4;
 
             //method untuk mencari feat cluster
-            Iris clusterResult;
+            Centroid clusterResult;
             double sLength, sWidth, pLength, pWidth;
             sLength = 0;
             sWidth = 0;
@@ -118,7 +118,7 @@ namespace Data_Clustering_LIB
             pLength /= i;
             pWidth /= i;
 
-            return clusterResult = new Iris(sLength, sWidth, pLength, pWidth);
+            return clusterResult = new Centroid(sLength, sWidth, pLength, pWidth);
         }
         public static double CalculateDistanceIris(Iris obj, Iris cluster)
         {
